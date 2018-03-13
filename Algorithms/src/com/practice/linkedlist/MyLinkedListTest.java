@@ -1,6 +1,5 @@
 package com.practice.linkedlist;
 
-import com.practice.linkedlist.MyLinkedList.Node;
 
 public class MyLinkedListTest {
 
@@ -19,7 +18,7 @@ public class MyLinkedListTest {
 		//ll.insertFront(50);
 		
 		ll.printList(ll.head);
-		Node reverse = ll.reverseList(ll.head);
+		ListNode reverse = ll.reverseList(ll.head);
 		System.out.println("Reverse");
 		ll.printList(reverse);
 		System.out.println("length " +ll.length(reverse));
@@ -30,7 +29,7 @@ public class MyLinkedListTest {
 		System.out.println("Palindrome " +isPalindrome);
 		
 		*/
-		Node rotateHead= ll.rotateRight(reverse, 2);
+		ListNode rotateHead= ll.rotateRight(reverse, 2);
 		System.out.println("Rotate List");
 		ll.printList(rotateHead);
 		
@@ -44,6 +43,7 @@ public class MyLinkedListTest {
 		ll2.insertFront(2);
 		ll2.insertFront(1);
 		ll2.printList(ll2.head);
+		
 		ll2.reorderList(ll2.head);
 		/*ll.removeElements(10);
 		ll.printList();*/
