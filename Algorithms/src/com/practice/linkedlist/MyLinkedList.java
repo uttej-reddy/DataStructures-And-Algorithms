@@ -1,5 +1,8 @@
 package com.practice.linkedlist;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyLinkedList {
 
 	ListNode head;
@@ -262,6 +265,45 @@ public class MyLinkedList {
         return dummy.next;
     }
 	
+	public boolean detectLoop(ListNode head) {
+		ListNode slow = head;
+		ListNode fast = head;	
+		while(slow != null && fast != null && fast.getNext() != null) {
+			slow = slow.getNext();
+			fast = fast.getNext().getNext();
+			if(slow == fast) {
+				return true;
+			}
+		}		
+		return false;		
+	}
 	
+	public Map<String,Object> loopDetails(ListNode head){
+		Map<String,Object> map = new HashMap<String,Object>();
+		ListNode slow = head;
+		ListNode fast = head;
+		boolean loopExists = false;
+		while(slow != null && fast != null && fast.getNext() != null) {
+			slow = slow.getNext();
+			fast = fast.getNext().getNext();
+			if(slow == fast) {
+				loopExists = true;
+				break;
+			}
+		}
+		
+		int loopLength = 0;
+		if(loopExists) {
+			while(slow.getNext() != fast) {
+				loopLength ++;
+				slow=slow.getNext();
+			}
+			loopLength ++;
+		}
+		map.put("loopLength", +loopLength);
+		
+		return map;
+		
+	}
 	
 }
