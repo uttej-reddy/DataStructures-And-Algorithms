@@ -26,6 +26,10 @@ public class MyBinaryTreeTest {
 		List<Integer> preOrderI = tree1.preOrderI(tree1.root);
 		System.out.println(preOrderI);
 		
+		System.out.println("\n Iteraative In Order is :");
+		List<Integer> inOrderI = tree1.inOrderI(tree1.root);
+		System.out.println(inOrderI);
+		
 		System.out.println("\n Max value in a tree is :" +tree1.max(tree1.root));
 		
 		System.out.println("\n Iteraative Post Order is :");

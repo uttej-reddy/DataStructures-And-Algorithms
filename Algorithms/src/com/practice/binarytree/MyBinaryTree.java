@@ -53,6 +53,17 @@ public class MyBinaryTree {
 		List<Integer> result = new ArrayList<Integer>();
 		Stack<BinaryTreeNode> s = new Stack<BinaryTreeNode>();
 		if(root == null) return null;
+		BinaryTreeNode curr = root;
+		while(curr!=null || s.size() >0) {
+			while(curr!=null) {
+
+				s.push(curr);
+				curr = curr.getLeft();
+			}
+			curr = s.pop();
+			result.add(curr.getData());
+			curr = curr.getRight();
+		}
 		return result;
 	}
 	
