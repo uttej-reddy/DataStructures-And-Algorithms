@@ -18,20 +18,19 @@ public class MaxHeap {
 		if(pos<=0 || pos>=count)
 		return -1;
 		
-		return pos-1/2;
+		return (pos-1)/2;
 		
 	}
 
 	public int LeftChild(int pos) {
 		int left = 2*pos + 1;
-		if(left >= count)
-			return -1;
+		//if(left >= count) return -1;
 		return left;
 	}
 	
 	public int RightChild(int pos) {
 		int right = 2*pos+2;
-		if(right >= count) return -1;
+		//if(right >= count) return -1;
 		return right;
 	}
 	
@@ -53,16 +52,18 @@ public class MaxHeap {
 			int temp = this.heap[pos];
 			this.heap[pos] = this.heap[max];
 			this.heap[max] = temp;
+			PercolateDown(max);
 		}
-		PercolateDown(max);
 	}
 	
 	public int Delete() {
 		if(this.count == 0 ) return -1;
 		int popped = this.heap[0];
+		//int temp = this.heap[0];
 		this.heap[0] = this.heap[this.count-1];
+		//this.heap[this.count-1]=temp;
 		this.count--;
-		PercolateDown(this.heap[0]);
+		PercolateDown(0);
 		return popped;
 	}
 	
@@ -94,11 +95,24 @@ public class MaxHeap {
         maxHeap.Insert(84);
         maxHeap.Insert(90);
         maxHeap.Insert(100);
-        
-        int[] result = maxHeap.heap;
-        for (int i = 0; i < result.length; i++) {
-			System.out.print(result[i] + "->");
+
+        int[] result1 = maxHeap.heap;
+        for (int i = 0; i < maxHeap.count; i++) {
+			System.out.print(result1[i] + ",");
 		}
-  
+        System.out.println();
+        
+        maxHeap.Delete();
+        int[] result2 = maxHeap.heap;
+        for (int i = 0; i < maxHeap.count; i++) {
+			System.out.print(result2[i] + ",");
+		}
+        
+        System.out.println();
+        maxHeap.Insert(100);
+        int[] result3 = maxHeap.heap;
+        for (int i = 0; i < maxHeap.count; i++) {
+			System.out.print(result3[i] + ",");
+		}
     } 
 }
