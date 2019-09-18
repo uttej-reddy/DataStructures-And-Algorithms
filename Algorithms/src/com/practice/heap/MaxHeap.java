@@ -41,13 +41,13 @@ public class MaxHeap {
 	
 	public void PercolateDown(int pos) {
 		int l,r,max;
+		max = pos;
 		l = LeftChild(pos);
 		r = RightChild(pos);
 		if(this.heap[l] > this.heap[pos])
 			max = l;
-		if(this.heap[r] > this.heap[pos])
+		if(this.heap[r] > this.heap[max])
 			max = r;
-		else max = pos;
 		if(max!=pos) {
 			int temp = this.heap[pos];
 			this.heap[pos] = this.heap[max];
