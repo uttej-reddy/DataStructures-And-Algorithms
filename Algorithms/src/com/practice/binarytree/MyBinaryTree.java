@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class MyBinaryTree {
 
-	BinaryTreeNode root;
+	public BinaryTreeNode root;
 	
 	public void preOrderR(BinaryTreeNode root) {
 		if(root!=null) {
