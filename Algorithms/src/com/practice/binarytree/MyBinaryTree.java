@@ -67,6 +67,7 @@ public class MyBinaryTree {
 		return result;
 	}
 	
+	//https://www.geeksforgeeks.org/iterative-postorder-traversal/
 	public void postOrderI(BinaryTreeNode root) {
 		Stack<BinaryTreeNode> s1 = new Stack<BinaryTreeNode>();
 		Stack<BinaryTreeNode> s2 = new Stack<BinaryTreeNode>();
