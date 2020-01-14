@@ -1,4 +1,4 @@
-package com.practice.graphs.algorithms;
+package com.practice.graphs.algorithms.practice1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -28,6 +28,7 @@ public class GraphSP {
 		System.out.println(spg.toString());
 		
 		spg.shortestDistTable(spg, 0, 6, 7);
+		
 		
 	}
 	

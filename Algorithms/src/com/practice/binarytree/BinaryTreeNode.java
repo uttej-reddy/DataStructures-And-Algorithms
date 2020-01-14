@@ -2,9 +2,9 @@ package com.practice.binarytree;
 
 public class BinaryTreeNode {
 	
-	private int data;
-	private BinaryTreeNode left;
-	private BinaryTreeNode right;
+	public int data;
+	public BinaryTreeNode left;
+	public BinaryTreeNode right;
 	
 	public BinaryTreeNode(int data) {
 		this.data = data;

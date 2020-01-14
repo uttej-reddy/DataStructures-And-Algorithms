@@ -11,9 +11,9 @@ public class MyBinaryTreeTest {
 		tree1.root.getLeft().setLeft(new BinaryTreeNode(4));
 		tree1.root.getLeft().setRight(new BinaryTreeNode(5));
 		tree1.root.setRight(new BinaryTreeNode(3));
-		tree1.root.getRight().setLeft(new BinaryTreeNode(6));
+		tree1.root.getRight().setLeft(new BinaryTreeNode(4));
 		tree1.root.getRight().setRight(new BinaryTreeNode(7));
-		tree1.root.getLeft().getRight().setLeft(new BinaryTreeNode(8));;
+		//tree1.root.getLeft().getRight().setLeft(new BinaryTreeNode(8));;
 		
 		System.out.println("Pre Order is :");
 		tree1.preOrderR(tree1.root);
@@ -48,6 +48,13 @@ public class MyBinaryTreeTest {
 		
 
 		System.out.println("\n DEEPEST NODE of tree is :" +tree1.deepestNode(tree1.root).getData());
+		
+		System.out.println("\n LEFT SUM is : " +tree1.sumOfLeftLeaves(tree1.root));
+		
+		//tree1.invertTree(tree1.root);
+		
+		List<List<Integer>> res = tree1.pathSum(tree1.root, 8);
+		System.out.println(res.toString());
 		
 		
 		

@@ -23,6 +23,7 @@ public class MyBinaryTree {
 			inOrderR(root.getLeft());
 			System.out.print(root.getData() + " ");
 			inOrderR(root.getRight());
+			
 		}
 	}
 	
@@ -35,54 +36,57 @@ public class MyBinaryTree {
 	}
 	
 	public List<Integer> preOrderI(BinaryTreeNode root) {
-		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> res = new ArrayList<Integer>();
+		if(root == null) return res;
 		Stack<BinaryTreeNode> s = new Stack<BinaryTreeNode>();
-		if(root == null) result = null;
 		s.push(root);
 		while(!s.isEmpty()) {
-			BinaryTreeNode temp = s.pop();
-			result.add(temp.getData());
-			if(temp.getRight() != null) s.push(temp.getRight());
-			if(temp.getLeft() != null ) s.push(temp.getLeft());
+			BinaryTreeNode tmp = s.pop();
+			if(tmp.right != null) s.push(tmp.right);
+			if(tmp.left != null) s.push(tmp.left);
+			res.add(tmp.data);
 		}
-		return result;
+		return res;
 	}
 	
 	public List<Integer> inOrderI(BinaryTreeNode root) {
 		//TODO. Trickier.Check
-		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> res = new ArrayList<Integer>();
+		if(root == null) return res;
 		Stack<BinaryTreeNode> s = new Stack<BinaryTreeNode>();
-		if(root == null) return null;
-		BinaryTreeNode curr = root;
-		while(curr!=null || s.size() >0) {
-			while(curr!=null) {
-
-				s.push(curr);
-				curr = curr.getLeft();
+		while(root != null || s.size() > 0) {
+			while(root != null) {
+				s.push(root);
+				root = root.left;
 			}
-			curr = s.pop();
-			result.add(curr.getData());
-			curr = curr.getRight();
+			BinaryTreeNode tmp = s.pop();
+			root = tmp.right; 
+			res.add(tmp.data);
 		}
-		return result;
+		return res;
 	}
 	
 	//https://www.geeksforgeeks.org/iterative-postorder-traversal/
 	public void postOrderI(BinaryTreeNode root) {
-		Stack<BinaryTreeNode> s1 = new Stack<BinaryTreeNode>();
-		Stack<BinaryTreeNode> s2 = new Stack<BinaryTreeNode>();
-		if(root==null) return;
-		s1.push(root);
-		while(!s1.isEmpty()) {
-			BinaryTreeNode temp = s1.pop();
-			if(temp.getLeft()!=null) s1.push(temp.getLeft());
-			if(temp.getRight()!=null) s1.push(temp.getRight());
-			s2.push(temp);
-		}
-		while(!s2.isEmpty()) {
-			System.out.print(s2.pop().getData() + " ");
-		}
+		
 	}
+	
+	public int sumOfLeftLeaves(BinaryTreeNode root) {
+        if(root == null) return 0;
+        int sum = 0;
+        
+        if(root.left != null){
+            if(root.left.left == null && root.left.right == null) 
+                sum += root.left.data;
+            else
+                sumOfLeftLeaves(root.left); 
+        }
+        
+        sum += sumOfLeftLeaves(root.right);
+            
+            return sum;
+        
+    }
 	
 	public int max(BinaryTreeNode root) {
 		int max = Integer.MIN_VALUE;
@@ -142,10 +146,10 @@ public class MyBinaryTree {
 	
 	public int depthOfTree(BinaryTreeNode root) {
 		if(root==null) return 0;
-		int leftDepth = depthOfTree(root.getLeft());
-		int rightDepth = depthOfTree(root.getRight());
-		int depth = (leftDepth > rightDepth) ? leftDepth+1 : rightDepth+1;
-		return depth;
+		int leftDepth = 1+ depthOfTree(root.getLeft());
+		int rightDepth = 1 + depthOfTree(root.getRight());
+		
+		return Math.max(leftDepth, rightDepth);
 		
 	}
 	
@@ -161,5 +165,46 @@ public class MyBinaryTree {
 		}
 		return temp;
 	}
+	
+	public BinaryTreeNode invertTree(BinaryTreeNode root) {
+		
+		if(root == null) return null;
+		
+		BinaryTreeNode  temp = root.left;
+		root.left = invertTree(root.right);
+		root.right = invertTree(temp);
+		
+		return root;
+	}
+	
+	public List<List<Integer>> pathSum(BinaryTreeNode root, int sum) {
+        
+        List<List<Integer>> res  =  new ArrayList<>();
+        if(root  == null) return res;
+        
+        	pathSum(root,sum,res,new ArrayList<>());
+        
+        return res;
+        
+    }
+    
+    public void pathSum(BinaryTreeNode root, int sum, List<List<Integer>> res,List<Integer> tempList) {
+    	if (root == null) {
+            return;
+        }
+        
+    	tempList.add(root.data);
+        
+        if (root.left == null && root.right == null && sum == root.data) {
+            res.add((tempList));
+        } else {
+            pathSum(root.left, sum - root.data, res, tempList);
+            pathSum(root.right, sum - root.data, res, tempList);
+        }
+        
+        tempList.remove(tempList.size() - 1);
+    }
+        
+    
 	
 }

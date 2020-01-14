@@ -11,6 +11,7 @@ public class SelectionSort extends SortingHelper {
 
 	}
 	
+	//selection sort inserts min element into the sorted sub array
 	public void selectionSort(int[] arr) {
 		int N = arr.length;
 		

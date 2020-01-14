@@ -21,6 +21,8 @@ public class BubbleSort extends SortingHelper {
 
 	}
 	
+	// bubble sort bubbles up max element to end of array
+	
 	public void bubbleSort(int[] arr) {
 		int N = arr.length;
 		int inner = 0;

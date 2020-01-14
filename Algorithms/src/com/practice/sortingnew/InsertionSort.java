@@ -26,7 +26,7 @@ public class InsertionSort extends SortingHelper {
 			int j = i-1;
 			
 			while(j>=0 && arr[j] > key) {
-				//not this // arr[i] = arr[j]; 
+				//not this --> arr[i] = arr[j]; 
 				arr[j+1] = arr[j];
 				j--;
 			}
@@ -47,5 +47,6 @@ public class InsertionSort extends SortingHelper {
 			}
 		}
 	}
+	
 
 }

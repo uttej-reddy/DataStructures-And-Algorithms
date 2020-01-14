@@ -1,4 +1,4 @@
-package com.practice.graphs.algorithms;
+package com.practice.graphs.algorithms.practice1;
 
 import java.util.ArrayList;
 import java.util.HashSet;

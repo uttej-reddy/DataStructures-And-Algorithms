@@ -24,6 +24,7 @@ public class MyQueueTest {
 		MyQueueTest my = new MyQueueTest();
 		QueueUsingStack qus1 = my.new QueueUsingStack();
 		
+		
 		qus1.enqueue(1);
 		qus1.enqueue(2);
 		
@@ -37,6 +38,8 @@ public class MyQueueTest {
 	public class QueueUsingStack{
 		MyStack stack1 = new MyStack();
 		MyStack stack2 = new MyStack();
+		
+	
 		
 		public void enqueue(int data){
 			stack1.push(data);
