@@ -89,8 +89,7 @@ public class Graph2 {
 				if(!set.contains(n))
 					s.push(n);
 			}
-			
-		
+	
 		}
 		
 		System.out.println();

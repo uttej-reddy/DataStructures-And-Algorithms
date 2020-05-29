@@ -15,6 +15,7 @@ public class MyBinaryTreeTest {
 		tree1.root.getRight().setRight(new BinaryTreeNode(7));
 		//tree1.root.getLeft().getRight().setLeft(new BinaryTreeNode(8));;
 		
+		StringBuilder sb = new StringBuilder();
 		System.out.println("Pre Order is :");
 		tree1.preOrderR(tree1.root);
 		System.out.println("\n In Order is :");

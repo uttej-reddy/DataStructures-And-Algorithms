@@ -7,7 +7,7 @@ public class StringTest {
 		System.out.println(longestCommonPrefix(strs));
 		String s1 = "flower";
 		String s2 = "flow";
-		System.out.println("INDEX : " +s2.indexOf(s1));
+		System.out.println("INDEX : " +s1.indexOf(s2));
 		
 		System.out.println("Random : " +Math.random()*10 );
 		
@@ -28,6 +28,8 @@ public class StringTest {
 		
 		System.out.println("DECODE WAYS : " +numDecodings("2206"));
 		System.out.println(s1.substring(1,2));
+		
+		System.out.println("STARTS with --> " + s1.startsWith(""));
 		
 	}
 

@@ -1,8 +1,10 @@
 package com.leetcode.prep;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 import javax.swing.tree.TreeNode;
@@ -30,6 +32,8 @@ public class LeetCode107 {
 	    public List<List<Integer>> levelOrderBottom(BinaryTreeNode root) {
 	        Queue<BinaryTreeNode> queue = new LinkedList<BinaryTreeNode>();
 	        List<List<Integer>> wrapList = new LinkedList<List<Integer>>();
+	        
+	        Map<TreeNode, Integer> map = new HashMap<>();
 	        
 	        if(root == null) return wrapList;
 	        
